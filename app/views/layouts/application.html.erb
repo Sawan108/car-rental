@@ -13,6 +13,17 @@
   </head>
 
   <body>
-    <%= yield %>
+  <div class="bg-img"style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');">
+    <%= render 'shared/navbar' %>
+
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+
+  </div>
+
+   <div class="container">
+      <%= yield %>
+   </div>
+
   </body>
 </html>
