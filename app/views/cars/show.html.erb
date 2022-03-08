@@ -1,3 +1,19 @@
-<h1><%= @car.model %></h1>
-
-<h3>Its gonna cost £<%= @car.price %></h3>
+<div class= "container">
+  <div class="position-relative">
+    <div class="card-trip">
+      <img src="https://source.unsplash.com/random/<%= @car.model %>">
+      <h1><%= @car.model %></h1>
+      <h3>This car costs $<%= @car.price%></h3>
+    </div>
+  <div>
+    <p><%= @car.model%> is the perfect car for you. It has low mileage and burns liitle amounts of fuel.
+    Perfect for sightseeing and cruising with friends. Air condition in perfect state.<p>
+  </div>
+  <div>
+     <button type="button" class="btn btn-primary">
+        Book this Car
+      </button>
+      <%# <%= link_to " this list", list_path(@booking) %>
+      <button type="button" class="btn btn-secondary"><%= link_to 'Back', cars_path %></button>
+  </div>
+ 
