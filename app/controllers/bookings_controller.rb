@@ -2,6 +2,10 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: :destroy
   before_action :set_car, only: [:new, :create]
 
+  def index
+    @bookings = Booking.all
+  end
+
   def new
     @booking = Booking.new
   end
@@ -15,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.car = @car
     @booking.user = current_user
        if @booking.save
-         redirect_to bookings_path
+         redirect_to cars_path
        else
          render :new
        end
