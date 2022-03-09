@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: :destroy
-  before_action :set_, only: [:new, :create]
+  before_action :set_car, only: [:new, :create]
 
   def new
     @booking = Booking.new
@@ -10,15 +10,16 @@ class BookingsController < ApplicationController
 
   # end
 
-  # def create
-  #   @booking = Booking.new(booking_params)
-  #   @booking.car = @current_user
-  #     if @booking.save
-  #       redirect_to _path(@)
-  #     else
-  #       render :new
-  #     end
-  # end
+   def create
+    @booking = Booking.new(booking_params)
+    @booking.car = @car
+    @booking.user = current_user
+       if @booking.save
+         redirect_to bookings_path
+       else
+         render :new
+       end
+   end
 
   def destroy
     @booking.destroy
@@ -27,7 +28,7 @@ class BookingsController < ApplicationController
 
     private
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :user_id, :car_id)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
   def set_booking
@@ -35,6 +36,6 @@ class BookingsController < ApplicationController
   end
 
   def set_car
-    @car = Car.find(params[:list_id])
+    @car = Car.find(params[:car_id])
   end
 end
