@@ -18,34 +18,34 @@
   <%# </div> %>
 
 
-<div class="container margin-top-negative">
-  <img src="https://loremflickr.com/320/240/<%= @car.model %>" class="img-fluid" alt="...">
+<div class="container margin-top-negative p-5">
   <%# <div class="map" style="background-image: url('https://loremflickr.com/320/240/<%= @car.model')"></div> %>
   <div class="row">
     <div class="col-8">
       <div class="car-show-card">
         <h1><%= @car.model %></h1>
-        <p class="car-show-address"><%= @car.price %></p>
+        <%# <p class="car-show-address"><%= @car.price</p> %>
       </div>
       <div class="car-show-card">
+          <img src="https://loremflickr.com/320/240/<%= @car.model %>" class="img-fluid" alt="Responsive image">>
       </div>
     </div>
 
-    <div class="col-4">
-      <div class="car-show-card">
+    <div class="col-4 mt-5">
+      <div class="car-show-card mt-5">
         <h5>Book this Car</h5>
 
-        <form action="">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">From:</span>
-            <input type="text" class="form-control" placeholder="12/10/2017" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group mt-2">
-            <span class="input-group-addon" id="basic-addon1">To:</span>
-            <input type="text" class="form-control" placeholder="18/10/2017" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-          <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%">
-        </form>
+        <div>
+        <p class ="center">New Booking Form</p>
+          <%= simple_form_for [@car, Booking.new] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+
+            <%= f.button :submit, "Book Me" , class: "btn btn-success" %>
+            <%= link_to  "Back", cars_path , class: "btn btn-info" %>
+          <% end %>
+
+        <div>
       </div>
       <div class="car-show-card">
         <h3>Price</h3>
