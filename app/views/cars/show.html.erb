@@ -17,9 +17,10 @@
       <%# <button type="button" class="btn btn-secondary"><%= link_to 'Back', cars_path</button> %>
   <%# </div> %>
 
-  <div class="map" style="background-image: url('<%= @car.picture_url %>')"></div>
 
 <div class="container margin-top-negative">
+  <img src="https://loremflickr.com/320/240/<%= @car.model %>" class="img-fluid" alt="...">
+  <%# <div class="map" style="background-image: url('https://loremflickr.com/320/240/<%= @car.model')"></div> %>
   <div class="row">
     <div class="col-8">
       <div class="car-show-card">
@@ -32,7 +33,7 @@
 
     <div class="col-4">
       <div class="car-show-card">
-        <h5>Book this place!</h5>
+        <h5>Book this Car</h5>
 
         <form action="">
           <div class="input-group">
@@ -47,22 +48,10 @@
         </form>
       </div>
       <div class="car-show-card">
-        <h3>Details</h3>
+        <h3>Price</h3>
         <div class="flex">
           <div class="flex ml-3">
-            <i class="material-icons mr-2">euro_symbol</i> <%= @car.price %>
-          </div>
-        </div>
-      </div>
-      <div class="car-show-card">
-        <div class="flex-align">
-          <h6 class="no-mb">Share</h6>
-
-          <div class="flex">
-            <i class="fa fa-facebook-square fa-2x mr-2"></i>
-            <i class="fa fa-twitter-square fa-2x mr-2"></i>
-            <i class="fa fa-pinterest-square fa-2x mr-2"></i>
-            <i class="fa fa-envelope-square fa-2x"></i>
+            <i class="material-icons mr-2">$</i> <%= @car.price %>
           </div>
         </div>
       </div>

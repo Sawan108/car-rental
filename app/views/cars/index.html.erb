@@ -1,62 +1,19 @@
-<%# <div class="cards"> %>
-  <%# <% @cars.each do |car| %>
-    <%# <div class="card-trip"> %>
-      <%# <img src="https://source.unsplash.com/random/240x300/?<%= car.model %>
-      <%# <div class="card-trip-infos">
+<br>
+
+<div class="cards">
+  <% @cars.each do |car| %>
+    <div class="card-trip">
+      <img src="https://source.unsplash.com/random/240x300/?<%= car.model %>">
+      <div class="card-trip-infos">
         <div>
-          <%# <h2><%= car.model</h2> %>
-          <%# <p></p>
+          <h2><%= car.model %></h2>
+          <p></p>
         </div>
-        <h2 class="card-trip-pricing"><%= car.price</h2>
-      <%# </div>
-      <div>
-      <%= link_to "Book now", car_path(car), class: "btn btn-flat" %>
-      <%# </div> %>
-    <%# </div>
-  <% end %>
-
-
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-12">
-      <h1>All our Cars</h1>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <p>You searched for <strong><%= @query %></strong>. We found <%= @cars.count %> cars out of our <%= Car.count %> on our website.</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <% @cars.each do |car| %>
-      <div class="col-4">
-        <div class="car-card">
-          <div class="car-card-image">
-          <img src="'https://loremflickr.com/320/240/<%= car.model %>" alt="">
-          </div>
-          <div class="car-card-content">
-            <div class="car-card-title">
-              <h4><%= car.model %></h4>
-            </div>
-            <p><%= car.price %></p>
-            <div class="flex">
-              <%# <div class="flex"> %>
-                <%# <i class="material-icons mr-2">people</i><span><%= car.number_of_guests</span> %>
-              <%# </div> %>
-              <%# <div class="flex ml-3"> %>
-                <%# <i class="material-icons mr-2">euro_symbol</i> <%= car.price %>
-              <%# # </div> %>
-            </div>
-          </div>
-          <div class="car-card-actions">
-            <%= link_to 'More info', car_path(car) %>
-            <a href="#" class="ml-3 text-warning">Edit</a>
-            <a href="#" class="ml-3 text-danger">Remove</a>
-          </div>
-        </div>
+        <h2 class="card-trip-pricing"><%= car.price %></h2>
       </div>
-    <% end %>
-  </div>
+      <div>
+        <%= link_to "Book now", car_path(car), class: "btn btn-flat" %>
+      </div>
+    </div>
+  <% end %>
 </div>
