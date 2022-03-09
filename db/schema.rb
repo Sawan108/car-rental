@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2022_03_08_102503) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "picture_url"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
