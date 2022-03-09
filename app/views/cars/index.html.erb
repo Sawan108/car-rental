@@ -33,7 +33,9 @@
     <% @cars.each do |car| %>
       <div class="col-4">
         <div class="car-card">
-          <div class="car-card-image" style="background-image: url('<%= car.picture_url %>')"></div>
+          <div class="car-card-image">
+          <img src="'https://loremflickr.com/320/240/<%= car.model %>" alt="">
+          </div>
           <div class="car-card-content">
             <div class="car-card-title">
               <h4><%= car.model %></h4>
