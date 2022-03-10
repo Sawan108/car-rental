@@ -1,1 +1,88 @@
-<%= link_to "Back", cars_path, class: "btn btn-flat" %>
+<%# <br>
+<div class="cards">
+
+  <% @bookings.each do |booking| %>
+    <%# <% if booking.user_id == current_user.id %>
+      <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80)">
+        <%= booking.start_date %>
+        <%# <br>
+        <%= booking.end_date %>
+        <%# <br>
+
+      </div>
+        <%= link_to "delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to remove?"}, class: 'text-danger' %>
+    <%# <% end %>
+  <%# <% end %>
+<%# </div> %>
+
+
+<!doctype html>
+<html lang="en">
+    <head>
+    <br>
+    <br>
+        <title>Bookings</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+	<div class="background-img"></div>
+	<section class="ftco-sections">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<div class="row justify-content-center">
+							<div class="col-md-6 text-center mb-5">
+								<h2 class="heading-section">Bookings</h2>
+							</div>
+						</div>
+						<table class="table">
+						<thead class="thead-primary">
+						<tr>
+                                <th>Booking Number</th>
+                                <th>Car</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Price</th>
+						</tr>
+						</thead>
+					<tbody>
+					<% count = 1  %>
+					<% @bookings.reverse_each do |booking| %>
+					<% if booking.user_id == current_user.id %>
+						<tr class="text-color">
+						<th scope="row"><%= count  %></th>
+						<% count += 1 %>
+            <td><%= booking.car.model%></td>
+
+						<td><%= booking.start_date%></td>
+
+						<td><%= booking.end_date%></td>
+            <% day = booking.end_date - booking.start_date %>
+            <% day_num = day.to_i %>
+            <% fee = day_num * booking.car.price %>
+            <td>$ <%= fee.to_i %></td>
+
+            <td><%= link_to "delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to remove?"}, class: 'btn btn-outline-warning rounded-pill' %></td>
+						</tr>
+						<% end %>
+					<% end %>
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+	</body>
+</html>

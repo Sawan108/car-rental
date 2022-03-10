@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-
+  resources :bookings, only: [:index, :destroy]
   resources :cars do
-    resources :bookings, only: [:create, :new]
+    resources :bookings
   end
 
-  resources :bookings, only: [:index]
 
 
   devise_scope :user do

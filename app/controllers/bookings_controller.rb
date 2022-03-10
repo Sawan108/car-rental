@@ -18,11 +18,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.car = @car
     @booking.user = current_user
-       if @booking.save
-         redirect_to cars_path
-       else
-         render :new
-       end
+      if @booking.save
+        redirect_to bookings_path
+      else
+        render :new
+      end
    end
 
   def destroy
