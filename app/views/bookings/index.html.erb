@@ -43,11 +43,11 @@
 						<table class="table">
 						<thead class="thead-primary">
 						<tr>
-                                <th>Booking Number</th>
-                                <th>Car</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th>Price</th>
+                <th>Booking Number</th>
+                <th>Car</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Price</th>
 						</tr>
 						</thead>
 					<tbody>
@@ -66,8 +66,8 @@
             <% day_num = day.to_i %>
             <% fee = day_num * booking.car.price %>
             <td>$ <%= fee.to_i %></td>
-
-            <td><%= link_to "delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to remove?"}, class: 'btn btn-outline-warning rounded-pill' %></td>
+            <td><%= link_to "Add Review", "#_path", class: "btn btn-outline-primary rounded-start" %>
+            <%= link_to "delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to remove?"}, class: 'btn btn-outline-warning rounded-end' %></td>
 						</tr>
 						<% end %>
 					<% end %>
