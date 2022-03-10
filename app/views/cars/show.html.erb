@@ -1,33 +1,13 @@
-<%# <div class= "container">
-  <div class="position-relative">
-    <div class="card-trip">
-      <img src="https://source.unsplash.com/random/<%= @car.model"> %>
-      <%# <h1><%= @car.model</h1> %>
-      <%# <h3>This car costs $<%= @car.price</h3> %>
-    <%# </div>
-  <div>
-    <p><%= @car.model is the perfect car for you. It has low mileage and burns liitle amounts of fuel. %>
-    <%# Perfect for sightseeing and cruising with friends. Air condition in perfect state.<p> %>
-  <%# </div> %>
-  <%# <div> %>
-     <%# <button type="button" class="btn btn-primary"> %>
-        <%# Book this Car %>
-      <%# # </button> %>
-      <%# <%= link_to " this list", list_path(@booking) %>
-      <%# <button type="button" class="btn btn-secondary"><%= link_to 'Back', cars_path</button> %>
-  <%# </div> %>
-
-
-<div class="container margin-top-negative p-5">
+<%# <div class="container margin-top-negative p-5">
   <div class="row">
     <div class="col-8">
       <div class="car-show-card">
         <h1><%= @car.model %></h1>
         <%# <p class="car-show-address"><%= @car.price</p> %>
-      </div>
+      <%# </div>
       <div class="car-show-card">
           <%= cl_image_tag @car.photo.key, width: 200, height: 200, crop: :fill %>
-      </div>
+      <%# </div>
     </div>
 
     <div class="col-4 mt-5">
@@ -36,13 +16,6 @@
 
         <div>
         <p class ="center">New Booking Form</p>
-          <%= simple_form_for [@car, Booking.new] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
-
-            <%= f.button :submit, "Book Me" , class: "btn btn-success" %>
-            <%= link_to  "Back", cars_path , class: "btn btn-info" %>
-          <% end %>
 
         <div>
       </div>
@@ -50,10 +23,45 @@
         <h3>Price</h3>
         <div class="flex">
           <div class="flex ml-3">
-            <i class="material-icons mr-2">$</i> <%= @car.price %>
-          </div>
+            <i class="material-icons mr-2">$</i>
+          <%# </div>
         </div>
       </div>
     </div>
+  </div>
+</div> %>
+<div class="row g-0">
+  <div  class="col-sm-6 col-md-8">
+    <br>
+    <br>
+    <br>
+    <div>
+      <%= cl_image_tag @car.photo.key, width: 200, height: 200, crop: :fill, class:" shadow-lg img-fluid" %>
+    </div>
+
+    <div>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 ps-3">
+    <br>
+    <br>
+    <br>
+    <h1 class= "text-center">Cost per day</h1>
+    <h1 class= "text-center">$ <%= @car.price %></h1>
+    <br>
+    <br>
+    <h2>Book for</h2>
+
+    <%= simple_form_for [@car, Booking.new] do |f| %>
+      <%= f.input :start_date %>
+      <br>
+      <%= f.input :end_date %>
+      <br>
+
+      <%= f.button :submit, "Book Me" , class: "btn btn-success  d-grid gap-2 col-6 mx-auto my-2 rounded-3" %>
+      <%= link_to  "Back", cars_path , class: "btn btn-outline-warning  d-grid gap-2 col-6 mx-auto my-2 rounded-3" %>
+    <% end %>
+
   </div>
 </div>
