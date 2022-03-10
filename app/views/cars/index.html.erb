@@ -3,15 +3,16 @@
   <br>
   <div>
     <div class="cards">
-      <% @cars.each do |car| %>
+      <% @cars.reverse_each do |car| %>
         <div class="card-trip">
-          <img src="https://source.unsplash.com/random/240x300/?<%= car.model %>">
+          <%# <img src="https://source.unsplash.com/random/240x300/?<%= car.model %>
+          <%= cl_image_tag car.photo.key,crop: :fill %>
           <div class="card-trip-infos">
             <div>
               <h2><%= car.model %></h2>
               <p></p>
             </div>
-            <h2 class="card-trip-pricing"><%= car.price %></h2>
+            <h2 class="card-trip-pricing">$<%= car.price %></h2>
           </div>
           <div class = "text-center" style="background-color: rgba(228, 228, 228, 0.596);">
             <%= link_to "Book now", car_path(car), class: "btn btn-flat" %>
