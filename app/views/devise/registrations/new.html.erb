@@ -1,5 +1,8 @@
-<h2>Sign up</h2>
-
+<div class="container mt-4" style= "color:black";>
+  <div class="row">
+    <div class="col-6 m-auto">
+      <div class="car-form form-book p-4 border border-3 shadow-lg">
+<h2 class="text-center" style="font-weight:bolder">Sign up</h2>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
@@ -17,12 +20,11 @@
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="form-actions mt-3 p-2 d-grid gap-2 col-6 mx-auto my-2">
+    <%= f.button :submit, "Sign up", class: "btn btn-primary rounded-pill" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
 
-
-
+</div>
