@@ -8,6 +8,11 @@ class CarsController < ApplicationController
     end
   end
 
+  def show
+    @car = Car.find(params[:id])
+    @booking = Booking.new
+  end
+
   def new
     @car = Car.new
   end
@@ -19,16 +24,20 @@ class CarsController < ApplicationController
     if @car.save!
       redirect_to cars_path
     else
-
       render :new
     end
   end
 
-  def show
+  def edit
     @car = Car.find(params[:id])
-    @booking = Booking.new
   end
 
+  def update
+    @car = Car.find(params[:id])
+    @car.update(car_params)
+    redirect_to cars_path
+    flash[:alert] = "Car Updated."
+  end
   private
 
   def car_params
