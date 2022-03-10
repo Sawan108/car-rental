@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
   def create
     @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
-    
     if @review.save
       redirect_to car_path(@car)
     else
@@ -19,5 +18,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:rating, :comment)
   end
-
 end
