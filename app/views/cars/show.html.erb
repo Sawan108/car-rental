@@ -19,7 +19,6 @@
 
 
 <div class="container margin-top-negative p-5">
-  <%# <div class="map" style="background-image: url('https://loremflickr.com/320/240/<%= @car.model')"></div> %>
   <div class="row">
     <div class="col-8">
       <div class="car-show-card">
@@ -27,7 +26,7 @@
         <%# <p class="car-show-address"><%= @car.price</p> %>
       </div>
       <div class="car-show-card">
-          <img src="https://loremflickr.com/320/240/<%= @car.model %>" class="img-fluid" alt="Responsive image">>
+          <%= cl_image_tag @car.photo.key, width: 200, height: 200, crop: :fill %>
       </div>
     </div>
 
