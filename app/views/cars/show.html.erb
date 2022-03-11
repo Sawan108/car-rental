@@ -37,7 +37,7 @@
     <br>
     <div>
 
-      <%= cl_image_tag @car.photo.key, class: "shadow-lg" %>
+      <%= cl_image_tag @car.photo.key, crop: :fill, class: "shadow-lg img-fluid" %>
 
     </div>
 
@@ -47,12 +47,15 @@
         <%= link_to "Edit your car", edit_car_path, class: "btn btn-ghost" %>
       </div>
       <br>
+      <h1>Reviews :</h1>
       <% @reviews.each do |review| %>
         <% if review.car_id == @car.id %>
-          <div class="card-product">
+          <div class="card-product shadow">
             <div class="card-product-infos">
-              <h2> <%= review.comment %></h2>
-              <p><%= review.rating %></p>
+              <ul class = "pt-3">
+                <li><h2> <%= review.comment %></h2></li>
+              </ul>
+              <p class = "ps-3 pb-3" >Rating : <%= review.rating.to_i%> out of 5</i> </p>
             </div>
           </div>
         <% end %>
