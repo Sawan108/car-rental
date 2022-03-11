@@ -46,6 +46,17 @@
       <div class="d-grid gap-2 col-6 mx-auto">
         <%= link_to "Edit your car", edit_car_path, class: "btn btn-ghost" %>
       </div>
+      <br>
+      <% @reviews.each do |review| %>
+        <% if review.car_id == @car.id %>
+          <div class="card-product">
+            <div class="card-product-infos">
+              <h2> <%= review.comment %></h2>
+              <p><%= review.rating %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 

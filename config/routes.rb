@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :destroy]
   # resources :reviews, except: [:new, :create]
   resources :cars do
-    resources :bookings do
-      resources :reviews, only: [ :new, :create ]
-    end
+    resources :bookings
+    resources :reviews, only: [ :new, :create ]
+
+
   end
 
 

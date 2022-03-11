@@ -5,14 +5,15 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @booking = Booking.find(params[:booking_id])
+    # @booking = Booking.find(params[:booking_id])
+    @car = Car.find(params[:car_id])
   end
 
   def create
 
-    @booking = Booking.find(params[:booking_id])
-    @review = Review.new
-    @review.car = @booking.car
+    @car = Car.find(params[:car_id])
+    @review = Review.new(review_params)
+    @review.car = @car
 
     if @review.save
       redirect_to car_path(@car)
