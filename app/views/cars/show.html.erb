@@ -36,10 +36,16 @@
     <br>
     <br>
     <div>
-      <%= cl_image_tag @car.photo.key, width: 200, height: 200, class:" shadow-lg img-fluid" %>
+
+      <%= cl_image_tag @car.photo.key, class:" shadow-lg img-fluid" %>
+      
     </div>
 
     <div>
+      <br>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <%= link_to "Edit your car", edit_car_path, class: "btn btn-ghost" %>
+      </div>
     </div>
   </div>
 
