@@ -68,8 +68,8 @@
             <td>$ <%= fee.to_i %></td>
             <td>
 
-            <%# <%= link_to "Add Review", reviews_path, class: "btn btn-outline-primary rounded-start" %>
-            <%# <%= link_to "delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to remove?"}, class: 'btn btn-outline-warning rounded-end' %> 
+            <%= link_to "Add Review",  new_car_review_path(booking.car_id), class: "btn btn-outline-primary rounded-start" %>
+            <%= link_to "delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to remove?"}, class: 'btn btn-outline-warning rounded-end' %>
 
             </td>
 

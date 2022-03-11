@@ -3,12 +3,17 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
+  def new
+    @review = Review.new
+  end
+
   def create
-    @booking = Booking.find(params[:booking_id])
-    @review = Review.new(review_params)
-    
+
+    @booking = Booking.find(params[:car_id])
+    @review = Review.new
+    @review.car = @booking.car
     if @review.save
-      redirect_to car_path(@car)
+      redirect_to cars_path(@car)
     else
       redirect_to bookings_path
     end
